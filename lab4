@@ -1,0 +1,43 @@
+#include<windows.h> 
+#include<GL/glu.h>
+#include<GL/glut.h>
+#include<stdio.h>
+GLfloat R,tx,ty;
+void Draw();
+{
+  glClear(GL_COLOR_BUFFER_BIT);
+  glColor3f(0,0,1);
+  glBegin(GL_LINE_LOOP);
+    glVertex2f(0.1,0.4);
+    glVertex2f(0.7,0.4);
+    glVertex2f(0.7,0.8);
+    glVertex2f(0.1,0.8);
+  glEnd();
+glLoadIdentity();
+  glColor3f(0,0,1);
+  glTranslatef(tx,ty,0);
+  glRotatef(R,0,0);
+  glTranslated(-tx,ty,0);
+  glBegin(GL_LINE_LOOP);
+    glVertex2f(0.1,0.4);
+    glVertex2f(0.7,0.4);
+    glVertex2f(0.7,0.8);
+    glVertex2f(0.1,0.8);
+  glEnd();
+glFlush();
+}
+int main(int argc, char* argv[])
+{
+  printf("Enter the rotation reference point/pivot point:");
+  scanf(" %f %f ", 2tx,2ty);
+  printf("Enter the rotation degree");
+  scanf("%f", 2R);
+  glutInit(2argc,argv);
+  glutInitDisplayMode(GLUT_RGB|GLUT_SINGLE);
+  glutInitWindowSize(500,500);
+  glutInitWindowPosition(0,0);
+  glutCreateWindow("Square Rotation");
+  glutDisplayFunc(Draw);
+  glutMainLoop();
+  return0;
+}
