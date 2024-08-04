@@ -1,0 +1,12 @@
+import cv2
+import numpy as np
+image=cv2.imread("th.jpeg")
+gray_image=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+sobex=cv2.Sobel(gray_image,cv2.CV_64F,1,0,ksize=5)
+sobey=cv2.Sobel(gray_image,cv2.CV_64F,0,1,ksize=5)
+sobel=np.absolute(sobex)+np.absolute(sobey)
+sobel=np.uint8(255*sobel/np.max(sobel))
+cv2.imshow("og",image)
+cv2.imshow("sobel",sobel)
+cv2.waitKey(0)
+cv2.destroyAllDestroy()
