@@ -26,12 +26,12 @@ glLoadIdentity();
   glEnd();
 glFlush();
 }
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
   printf("Enter the rotation reference point/pivot point:");
-  scanf(" %f %f ", 2tx,2ty);
+  scanf(" %f %f ", &tx,&ty);
   printf("Enter the rotation degree");
-  scanf("%f", 2R);
+  scanf("%f", &R);
   glutInit(2argc,argv);
   glutInitDisplayMode(GLUT_RGB|GLUT_SINGLE);
   glutInitWindowSize(500,500);
